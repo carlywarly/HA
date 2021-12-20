@@ -10,7 +10,6 @@ blueprint:
         entity:
           integration: mqtt
           domain: sensor
-          model: TS0042
     button_one_single:
       name: Single Press - Button 1
       description: Action to run on button 1 (top-left) single press
