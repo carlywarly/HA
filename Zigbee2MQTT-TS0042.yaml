@@ -10,7 +10,6 @@ blueprint:
         entity:
           integration: mqtt
           domain: sensor
-          manufacturer: _TZ3000_dfgbtub0
           model: TS0042
     button_one_single:
       name: Single Press - Button 1
