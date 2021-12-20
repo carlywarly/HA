@@ -1,11 +1,11 @@
 blueprint:
   name: Zigbee2MQTT - Tuya 2-Button Scene Switch
-  description: Automate your Tuya 4-Button Scene via Zigbee2MQTT MQTT Topic.
+  description: Automate your Tuya 2-Button Scene via Zigbee2MQTT MQTT Topic.
   domain: automation
   input:
     mqtt_topic:
-      name: Tuya 4-Button Scene MQTT Topic
-      description: Tuya 4-Button Scene QMTT Topic to use
+      name: Tuya 2-Button Scene MQTT Topic
+      description: Tuya 2-Button Scene QMTT Topic to use
     button_one_short_press:
       name: Single Press - Button 1
       description: Action to run on button 1 (lower-left) single press
