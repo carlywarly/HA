@@ -42,7 +42,7 @@ blueprint:
       default: []
       selector:
         action: {}
-  source_url: https://github.com/konnectedvn/hass-config/blob/master/blueprint/automations/Tuya_TS0044_remote.yaml
+  source_url: https://github.com/carlywarly/HA/blob/main/zigbee2mqtt-tuya-2-button-scene-switch-ts0042.yaml
 mode: restart
 max_exceeded: silent
 trigger:
