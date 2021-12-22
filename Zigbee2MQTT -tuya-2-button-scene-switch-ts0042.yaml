@@ -1,0 +1,76 @@
+blueprint:
+  name: Zigbee2MQTT - Tuya 2-Button Scene Switch (TS0042)
+  description: Automate your Tuya 2-Button Scene Switch using Zigbee2MQTT actions.
+  domain: automation
+  input:
+    switch:
+      name: Tuya 2-Button Scene Switch TS0042
+      description: Tuya 2-Button Scene Switch to use
+      selector:
+        entity:
+          integration: mqtt
+          domain: sensor
+    button_one_single:
+      name: Single Press - Button 1
+      description: Action to run on button 1 (top-left) single press
+      default: []
+      selector:
+        action: {}
+    button_two_single:
+      name: Single Press - Button 2
+      description: Action to run on button 2 (top-right) single press
+      default: []
+      selector:
+        action: {}
+    button_one_double:
+      name: Double Press - Button 1
+      description: Action to run on button 1 (top-left) double press
+      default: []
+      selector:
+        action: {}
+    button_two_double:
+      name: Double Press - Button 2
+      description: Action to run on button 2 (top-right) double press
+      default: []
+      selector:
+        action: {}
+    button_one_hold:
+      name: Hold Press - Button 1
+      description: Action to run on button 1 (top-left) hold press
+      default: []
+      selector:
+        action: {}
+    button_two_hold:
+      name: Hold Press - Button 2
+      description: Action to run on button 2 (top-right) hold press
+      default: []
+      selector:
+        action: {}
+mode: restart
+max_exceeded: silent
+trigger:
+- platform: state
+  entity_id: !input 'switch'
+  attribute: action
+action:
+- variables:
+    command: '{{ trigger.to_state.state }}'
+- choose:
+  - conditions:
+    - '{{ command == ''1_single'' }}'
+    sequence: !input 'button_one_single'
+  - conditions:
+    - '{{ command == ''2_single'' }}'
+    sequence: !input 'button_two_single'
+  - conditions:
+    - '{{ command == ''1_double'' }}'
+    sequence: !input 'button_one_double'
+  - conditions:
+    - '{{ command == ''2_double'' }}'
+    sequence: !input 'button_two_double'
+  - conditions:
+    - '{{ command == ''1_hold'' }}'
+    sequence: !input 'button_one_hold'
+  - conditions:
+    - '{{ command == ''2_hold'' }}'
+    sequence: !input 'button_two_hold'
